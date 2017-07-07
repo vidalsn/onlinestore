@@ -1,5 +1,4 @@
-<?php
-
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 abstract class AbstractclassBasicModel extends CI_Model
 {
@@ -64,7 +63,6 @@ abstract class AbstractclassBasicModel extends CI_Model
 
  		public function save()
  		{
-	
  			if( $this->{$this::DB_TABLE_PK} != 0 ){
  				$this->update();
  			}else{

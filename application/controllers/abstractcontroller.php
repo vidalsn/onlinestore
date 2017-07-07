@@ -16,7 +16,6 @@ abstract class AbstractController extends CI_Controller
 	{
 
 		$tempArray = $this->input->post();
-		//print_r($_POST);
 		if(empty($tempArray))
 		{
 		

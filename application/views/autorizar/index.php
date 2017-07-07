@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-    	<title>Log In</title>
+    	<title>Iniciar sesión</title>
     	<meta charset="utf-8">      <!-- Bootstrap -->
+    	
     	<link rel="stylesheet" type="text/css" href="/extra/bootstrap/css/bootstrap.min.css">
     	<link rel="stylesheet" href="/extra/bootstrap/css/bootstrap-theme.min.css">
       	<link rel="stylesheet" href="/extra/css/jquery.dataTables.min.css">
@@ -16,19 +17,24 @@
   	<body>
  		<div class="container">
 	        <div class="card card-container">
-				<a href="./registrar">Registro de usuario</a>
+	        	<h4><span class="label label-primary">Inician sessión</span></h4>
+	        	</br>
 	            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
 	            <p id="profile-name" class="profile-name-card"></p>
 	            <form class="form-signin" method="post">
 	                <span id="reauth-email" class="reauth-email"></span>
-	                <input type="email" id="email" name="email" class="form-control" placeholder="Direccion de Email" required autofocus>
-	                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-	               	<div class="help-block"><?php echo !isset($login)?'':'El usuario/contraseña no es correcta!'; ?></div>
+	                <input type="email" id="email" name="email" class="form-control" placeholder="Direccion de correo electronico" required autofocus>
+	                <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required>
+	               	
+					<?php echo !isset($login)?'':'<div class="alert alert-warning">El usuario y/o contraseña no es correcta!</div>';?>
+
 	                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
 	            </form><!-- /form -->
 	            <a href="#" class="forgot-password">
-	                Olvidaste tu Password?
+	                Olvidaste tu contraseña?
 	            </a>
+	        	</br>
+	            <a href="./registrar">Registrar nuevo usuario</a>
 	        </div><!-- /card-container -->
     	</div><!-- /container -->
 

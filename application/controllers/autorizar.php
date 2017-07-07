@@ -27,7 +27,7 @@ class Autorizar extends AbstractController {
 	public function index()
 	{
 	    if($this->session->userdata('login')) {
-	        if($this->session->userdata('tipo')=='1')
+	        if($this->session->userdata('tipo') == '1')
                 redirect('administrador');
             else
                 redirect('indice');
@@ -38,8 +38,8 @@ class Autorizar extends AbstractController {
             if($this->is_post()){
 
                 
-                $email = $this->input->post('email');
-                $password = $this->input->post('password');
+                $email = $this->input-> post('email');
+                $password = $this->input-> post('password');
                 
                 $this->load->model('Usuario');
                 
@@ -48,7 +48,7 @@ class Autorizar extends AbstractController {
 
                 if($result) {
 
-                    
+                    session_start();
                     $sess_array = array();
                     foreach ($result as $row) {
                         $sess_array = array(
@@ -59,14 +59,14 @@ class Autorizar extends AbstractController {
                         );
                         $this->session->set_userdata($sess_array);
                     }
-                    if($this->session->userdata('tipo')=='1')
+                    if($this->session->userdata('tipo') == '1')
                     {
                         redirect('administrador');
                     }
                     else
                         redirect('indice');
                 }
-                else $this->load->view('autorizar/index',array('login'=>0));
+                else $this->load->view('autorizar/index',array('login' => 0));
             }
             else{
 
@@ -78,11 +78,9 @@ class Autorizar extends AbstractController {
     }
 
     public function salir(){
+        session_start();
         $this->session->unset_userdata('login');
         session_destroy();
-        redirect('autorizar', 'refresh');
+        redirect('autorizar','refresh');
     }
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
